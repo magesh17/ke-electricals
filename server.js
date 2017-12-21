@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 var path    = require("path");
-
+var port = process.env.PORT || 8080;
 
 app.set('view engine', 'ejs')
 app.use(express.static('public'));
@@ -29,6 +29,8 @@ app.get('/enquiry', function (req, res) {
 app.get('/contact', function (req, res) {
   res.render('contact');
 })
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-})
+
+app.listen(port, function() {
+    console.log('Our app is running on http://localhost:' + port);
+});
+
